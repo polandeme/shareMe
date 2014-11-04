@@ -8,6 +8,6 @@ Share.config(function($stateProvider, $urlRouterProvider) {
 			url: '/',
 			templateUrl: 'views/video.html'  
 		});
-		// $urlRouterProvider.otherwise('/home');
-		 $urlRouterProvider.otherwise('/home');
+		 $urlRouterProvider.otherwise('/');
 })
+
