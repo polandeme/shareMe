@@ -3,12 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>index</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
-<body ng-app="Share">
-	hello world
+<body >
+<header>
+	<nav class="navgation">
+		<ul>
+			<li><a href="#/home">logo</a></li>
+			<li><a href="#/url">网站</a></li>
+			<li><a href="#/picture">图片</a></li>
+			<li><a href="#/music">音乐</a></li>
+			<li><a href="#/video">视频</a></li>
+			<li> + </li>
+		</ul>
+	</nav>
+</header>
 	<div ui-view></div>
-<script type="text/javascript" src="/javascripts/lib/angular.min.js"></script>
-<script type="text/javascript" src="/javascripts/lib/angular-ui-router.js"></script>
-<script type="text/javascript" src="/javascripts/routes.js"></script>
+	
+<script type="text/javascript" data-main="/javascripts/main" src="/javascripts/lib/require.js"></script>
 </body>
 </html>

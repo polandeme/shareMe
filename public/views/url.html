@@ -1,0 +1,17 @@
+<div class="url-wrap" ng-controller="UrlController">
+	<div class="url-content">
+		<ul class="url-list">
+			<li class="url-card" ng-repeat="item in title">
+				<div class="card-content">
+					<div class="url-vote">
+						<div class="url-vote-up">△</div>
+						<div class="url-vote-down">▽</div>
+					</div>
+					<div class="url-title">
+						{{ item.name }}
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
