@@ -10,6 +10,7 @@ define(function() {
 			{name: 'title1'},
 			],
 			test: function() {
+				// $('.navgation ul').fadeOut(400);
 				console.log('test UrlService');
 			}
 		}
