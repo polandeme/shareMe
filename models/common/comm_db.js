@@ -17,8 +17,9 @@ comm_db.prototype.connect = function () {
 	  password : '',
 	  database : 'hoho'
 	});
-
+    
 	connection.connect();
+    return connection;
 
 }
 /**

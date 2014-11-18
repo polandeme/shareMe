@@ -6,7 +6,7 @@ define(function() {
 			},
 			hide: function() {
 				$('.navgation ul').fadeOut(400);
-				$('.input-text').show();
+				$('.input-text, .url-sub').show();
 			},
 			showPublich: function() {
 

@@ -1,21 +1,24 @@
 // var test = require('../models/common/comm_db');
+var bodyParser = require('body-parser');
 var m_url = require('../models/m_url');
 module.exports = function (app) {
 	app.post('/', function(req, res) {
-
-		console.log(req.body.test);
 		res.send(req.body.test);
-		console.log(req.hostname + req.path);
 		
 	});
 	app.post('/video', function(req, res) {
-		var ip = req.headers['x-forwarded-for'] || 
+		var _ip = req.headers['x-forwarded-for'] || 
 			     req.connection.remoteAddress || 
 			     req.socket.remoteAddress ||
 			     req.connection.socket.remoteAddress;
-			     var m_ = new m_url();
-		res.send(ip + m_.add());
-		console.log(req.hostname + req.path);
-		
+        // data
+    var data = {
+        url: req.url,
+        time: new Date().getTime(),  
+        ip: _ip,
+        title: get_title()
+    }
+        var m_u = new m_url();
+            res.send(ip + m_u.add() + req.body.url);
 	});
 };
