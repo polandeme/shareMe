@@ -16,5 +16,6 @@ module.exports = function (app) {
 			     var m_ = new m_url();
 		res.send(ip + m_.add());
 		console.log(req.hostname + req.path);
+		
 	});
 };
