@@ -7,12 +7,18 @@ module.exports = function (app) {
 		
 	});
 	app.post('/video', function(req, res) {
-		var ip = req.headers['x-forwarded-for'] || 
+		var _ip = req.headers['x-forwarded-for'] || 
 			     req.connection.remoteAddress || 
 			     req.socket.remoteAddress ||
 			     req.connection.socket.remoteAddress;
-			     var m_u = new m_url();
-                 console.log(req.body);
-		res.send(ip + m_u.add() + req.body);
+        // data
+    var data = {
+        url: req.url,
+        time: new Date().getTime(),  
+        ip: _ip,
+        title: get_title()
+    }
+        var m_u = new m_url();
+            res.send(ip + m_u.add() + req.body.url);
 	});
 };
