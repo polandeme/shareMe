@@ -6,7 +6,8 @@ function m_url() {
 
 m_url.prototype.add = function (data) {
     var data = {
-        ho_url_id: 1,
+        // ho_url_id: 1,
+        ho_url_add: data.url,
         ho_url_title: 'titletest',
         ho_url_tags: 'sge',
         ho_url_vote_up: 1,
