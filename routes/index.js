@@ -15,20 +15,26 @@ module.exports = function (app) {
 			     req.socket.remoteAddress ||
 			     req.connection.socket.remoteAddress;
         // data
-    var urlData = {
-        url: req.url,
-        time: new Date().getTime(),  
-        ip: _ip,
-        title: 'title',
-        tags: 'tsed',
-        status: 2
-    }
     	var title = new get_title();
-
-    	title.u2t().then(function(data) {
+    	title.u2t(req.body.url).then(function(data) {
+            var urlData = {
+                url: req.body.url,
+                time: new Date().getTime(),  
+                ip: _ip,
+                title: data,
+                tags: 'tsed',
+                status: 2
+            };
     		var m_u = new m_url();
+            m_u.add(urlData);
             res.send(_ip + data);
     	});
-        
 	});
+    app.get('/getUrl', function(req, res) {
+       var m_u = new m_url();
+       m_u.get().then(function(data) {
+           console.log(data);
+           res.send(data);
+       });
+    });
 };

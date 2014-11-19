@@ -5,8 +5,8 @@ function get_title() {
 
 }
 
-get_title.prototype.u2t  = function() {
-	var url = 'http://localhost/weather/';
+get_title.prototype.u2t  = function(url) {
+    console.log(url);
 		var r_url = /^(((ht|f)tp(s?))\:\/\/)?(www.|[a-zA-Z].)[a-zA-Z0-9\-\.]+\.(com|edu|gov|mil|net|org|biz|info|name|museum|us|ca|uk)(\.cn)?(\:[0-9]+)*(\/($|[a-zA-Z0-9\.\,\;\?\'\\\+&amp;%\$#\=~_\-]+))*$/.test(url); 
 		if(r_url) {
 			console.log('loag');
