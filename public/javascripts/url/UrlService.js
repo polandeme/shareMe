@@ -1,14 +1,6 @@
 define(function() {
 	var UrlService = function(H) {
 		var o = {
-			title: [
-			{name: 'title1'},
-			{name: 'title2'},
-			{name: 'title1'},
-			{name: 'title1'},
-			{name: 'title1'},
-			{name: 'title1'},
-			],
             urlData : [], 
 			test: function() {
 				// $('.navgation ul').fadeOut(400);
@@ -17,14 +9,16 @@ define(function() {
             getUrl: function() {
                 H.get('/getUrl').then(function(data) {
                     for(var i = 0; i < data.length; i++) {
-                        o.urlData.push({name: data[i].ho_url_title});
+                        o.urlData.push({title: data[i].ho_url_title
+                                        ,url: data[i].ho_url_add
+                                       });
                     }
             });
             },
             addUrl: function() {
                 $('.url-sub').click(function() {
                     H.post('/video', {url: $('.input-text').val() }).then(function(data) {
-                        o.urlData.push({name: data});
+                        o.urlData.push({title: data});
                     }); 
                 })
             }

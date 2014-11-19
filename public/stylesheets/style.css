@@ -19,7 +19,7 @@ header {
 	line-height: 99px;
 	border-left: 1px solid gray;
 }
-.navgation li:last-child a{
+.navgation li:last-child {
 	font-size: 80px;
 }
 .navgation li a {

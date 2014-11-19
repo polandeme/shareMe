@@ -5,8 +5,11 @@ define(function() {
 
 			},
 			hide: function() {
-				$('.navgation ul').fadeOut(400);
-				$('.input-text, .url-sub').show();
+                  $('.pub').click(function() {
+                    $('.navgation ul').fadeOut(400);
+                    $('.input-text, .url-sub').show();
+                  });
+                  $();
 			},
 			showPublich: function() {
 

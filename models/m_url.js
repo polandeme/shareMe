@@ -6,6 +6,7 @@ function m_url() {
 }
 
 m_url.prototype.add = function (urlData) {
+    var defferred = Q.defer();
     var data = {
         // ho_url_id: 1,
         ho_url_add: urlData.url,
@@ -17,10 +18,19 @@ m_url.prototype.add = function (urlData) {
         // ho_url_date: urlData.time,
         ho_url_status: urlData.status 
     }
+
     var connect = this.db.connect();
-    connect.query('INSERT INTO ho_url SET ?', data, function(err, res) {
-        console.log('insert success');
-    });
+    (function() {
+        connect.query('INSERT INTO ho_url SET ?', data, function(err, res) {
+            if(err) {
+                defferred.reject();
+            } else {
+                defferred.resolve();
+            }
+            console.log('insert success');
+        });
+    })();
+    return defferred.promise; 
 };
 m_url.prototype.get = function () {
    var connect = this.db.connect(); 
