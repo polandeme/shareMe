@@ -19,6 +19,8 @@ define(function() {
                 $('.url-sub').click(function() {
                     H.post('/video', {url: $('.input-text').val() }).then(function(data) {
                         o.urlData.push({title: data});
+                        $('.input-text, .url-sub').hide();
+                        $('.navgation ul').fadeIn(400);
                     }); 
                 })
             }

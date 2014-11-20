@@ -1,6 +1,8 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var Iconv = require('iconv-lite');
 var Q = require('q');
+
 function get_title() {
 
 }
@@ -16,10 +18,17 @@ get_title.prototype.u2t  = function(url) {
 			if(e) {
 				deferred.reject();
 			} else {
-				res.setEncoding('utf-8');
-				var html = body.toString();
+                 res.setEncoding('binary');
+                 var buf = new Buffer(body, 'binary');
+                // var iconv = new Iconv('GBK', 'UTF-8');
+				// res.setEncoding('utf-8');
+                var html = Iconv.decode(buf, 'GBK');
+				// var html = iconv.convert(new Buffer(body, 'binary')).toString();
+				// var html = iconv.convert(body).toString();
+                console.log(html);
 				var $ = cheerio.load(html);
 				var mesage = $('title').text();
+                var charset = $('meta').eq(0);//.characterSet;
 				deferred.resolve(mesage);
 			}
 			

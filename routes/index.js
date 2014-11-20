@@ -33,7 +33,6 @@ module.exports = function (app) {
     app.get('/getUrl', function(req, res) {
        var m_u = new m_url();
        m_u.get().then(function(data) {
-           console.log(data);
            res.send(data);
        });
     });

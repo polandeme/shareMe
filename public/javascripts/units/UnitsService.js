@@ -9,7 +9,7 @@ define(function() {
                     $('.navgation ul').fadeOut(400);
                     $('.input-text, .url-sub').show();
                   });
-                  $();
+                  // $();
 			},
 			showPublich: function() {
 
