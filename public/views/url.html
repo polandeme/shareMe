@@ -4,8 +4,8 @@
 			<li class="url-card" ng-repeat="item in urlData">
 				<div class="card-content">
 					<div class="url-vote">
-						<div class="url-vote-up">△</div>
-						<div class="url-vote-down">▽</div>
+						<div class="url-vote-up" ng-click="voteUp(item.id)"  id="url-vote-up-{{item.id}}">△</div>
+						<div class="url-vote-down" id="url-vote-down-{{item.id}}">▽</div>
 					</div>
 					<div class="url-title">
                         <a href="{{item.url}}">{{ item.title}} </a>

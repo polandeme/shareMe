@@ -3,7 +3,8 @@ define(function() {
 		
 		$scope.getUrl= UrlService.getUrl();
 		$scope.urlData = UrlService.urlData;
-        UrlService.addUrl();
+        $scope.addUrl = UrlService.addUrl();
 		UnitsService.hide();
+		$scope.voteUp = UrlService.voteUp;
 	}
 })

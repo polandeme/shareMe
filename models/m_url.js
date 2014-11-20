@@ -12,8 +12,8 @@ m_url.prototype.add = function (urlData) {
         ho_url_add: urlData.url,
         ho_url_title: urlData.title,
         ho_url_tags: urlData.tags,
-        ho_url_vote_up: 1,
-        ho_url_vote_down: 2,
+        ho_url_vote_up: 0,
+        ho_url_vote_down: 0,
         ho_url_user_id: 10,
         // ho_url_date: urlData.time,
         ho_url_status: urlData.status 
@@ -45,5 +45,12 @@ m_url.prototype.get = function () {
    })
    })();
     return defferred.promise; 
+};
+
+// vote up
+m_url.prototype.upVote = function (id) {
+  console.log(id);
+  var connect = this.db.connect();
+  connect.query('UPDATE ho_url SET ho_url_vote_up = ho_url_vote_up + 1 WHERE ho_url_id =' + id + '');
 }
 module.exports = m_url;

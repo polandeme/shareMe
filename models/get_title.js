@@ -18,14 +18,14 @@ get_title.prototype.u2t  = function(url) {
 			if(e) {
 				deferred.reject();
 			} else {
-                 res.setEncoding('binary');
-                 var buf = new Buffer(body, 'binary');
+                 res.setEncoding('utf-8');
+                 // var buf = new Buffer(body, 'binary');
                 // var iconv = new Iconv('GBK', 'UTF-8');
 				// res.setEncoding('utf-8');
-                var html = Iconv.decode(buf, 'GBK');
+                // var html = Iconv.decode(buf, 'GBK');
 				// var html = iconv.convert(new Buffer(body, 'binary')).toString();
 				// var html = iconv.convert(body).toString();
-                console.log(html);
+				var html = body.toString();
 				var $ = cheerio.load(html);
 				var mesage = $('title').text();
                 var charset = $('meta').eq(0);//.characterSet;
